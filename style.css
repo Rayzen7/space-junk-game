@@ -278,8 +278,8 @@
         position: fixed;
         justify-content: center;
         align-items: center;
-        width: 90px;   
-        height: 110px;
+        width: 120px;   
+        height: 125px;
         background-color: #003e80;
         padding: 16px;
         border-radius: 20px;
@@ -298,13 +298,9 @@
 
     .icon-flex .icon,
     .icon {
-        width: 24px;
+        width: 28px;
         height: auto;
         fill: white;
-    }
-
-    .icon {
-        width: 32px;
     }
 
     #analog.active {
