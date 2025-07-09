@@ -73,6 +73,15 @@ playBtn.addEventListener('click', () => {
         currentObject = inputObject
     }
 
+    const elem = document.documentElement; 
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.webkitRequestFullscreen) {
+      elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) {
+      elem.msRequestFullscreen();
+    }
+
     playerData = {
         name: inputName,
         time: Number(inputTime),
@@ -225,41 +234,49 @@ document.addEventListener('keyup', (e) => {
 analogUp.addEventListener('touchstart', (e) => {
     e.preventDefault();
     keys.ArrowUp = true;
+    updatePlayerAngle();
 });
 
 analogRight.addEventListener('touchstart', (e) => {
     e.preventDefault();
     keys.ArrowRight = true;
+    updatePlayerAngle();
 });
 
 analogLeft.addEventListener('touchstart', (e) => {
     e.preventDefault();
     keys.ArrowLeft = true;
+    updatePlayerAngle();
 });
 
 analogDown.addEventListener('touchstart', (e) => {
     e.preventDefault();
     keys.ArrowDown = true;
+    updatePlayerAngle();
 });
 
 analogUp.addEventListener('touchend', (e) => {
     e.preventDefault();
     keys.ArrowUp = false;
+    updatePlayerAngle();
 });
 
 analogRight.addEventListener('touchend', (e) => {
     e.preventDefault();
     keys.ArrowRight = false;
+    updatePlayerAngle();
 });
 
 analogLeft.addEventListener('touchend', (e) => {
     e.preventDefault();
     keys.ArrowLeft = false;
+    updatePlayerAngle();
 });
 
 analogDown.addEventListener('touchend', (e) => {
     e.preventDefault();
     keys.ArrowDown = false;
+    updatePlayerAngle();
 });
 
 // Player update position
