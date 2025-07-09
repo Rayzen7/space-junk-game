@@ -253,7 +253,7 @@
     display: none;
 }
 
-@media screen and (orientation: landscape) {
+@media screen and (max-width: 768px) and (orientation: landscape) {
     .home {
         height: auto;
         min-height: 100vh;
