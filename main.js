@@ -372,7 +372,7 @@ const playerProp = {
     x: 50,
     y: 50,
     size: 50,
-    speed: 5,
+    speed: 6,
     angle: Math.PI / 2
 }
 
