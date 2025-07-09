@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Junk</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./source/ships-09.png">
+</head>
+
+<body>
+    <section class="home">
+        <div class="home-title">
+            <div class="home-title-content">
+                <img src="./source/ships-09.png" alt="">
+                <h1>Space Junk</h1>
+            </div>
+            <p>Collect space objects while avoiding enemy space ship</p>
+        </div>
+        <div class="home-body">
+            <div class="home-body-intc">
+                <div class="home-body-img">
+                    <div class="img-content">
+                        <img src="./source/ships-09.png" alt="">
+                        <p>Player</p>
+                    </div>
+                    <div class="img-content">
+                        <img src="./source/ships-02.png" alt="">
+                        <p>Enemy</p>
+                    </div>
+                    <div class="img-content">
+                        <img src="./source/objects-04.png" alt="">
+                        <p>Big Object 20</p>
+                    </div>
+                    <div class="img-content">
+                        <img src="./source/objects-06.png" alt="">
+                        <p>Small Object 5</p>
+                    </div>
+                </div>
+                <div class="home-body-intc-content">
+                    <h1>How to Play This Game</h1>
+                    <div class="intc-content">
+                        <p>1. Enter your name and set the game duration (in seconds).</p>
+                        <p>2. (Optional) Set the number of space objects to collect.</p>
+                        <p>3. Click Play to start the game.</p>
+                        <p>4. Use arrow keys or WASD to move the Rocket around the board.</p>
+                        <p>5. Pause/Resume: Press `P` or click Pause button</p>
+                        <p>6. Collect all space objects (small = 5 points, large = 20 points).</p>
+                        <p>7. Avoid the enemy spaceship chasing you.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="home-body-input">
+                <div class="input-content">
+                    <input id="inputName" type="text" required placeholder="Name">
+                    <p>Player name</p>
+                </div>
+                <div class="input-content">
+                    <input id="inputTime" type="number" required placeholder="Timer (Second)">
+                    <p>Timer</p>
+                </div>
+                <div class="input-content">
+                    <input id="inputObject" type="number" placeholder="Object">
+                    <p>Space object amount</p>
+                </div>
+            </div>
+            <button id="playBtn">Play</button>
+        </div>
+    </section>
+
+    <section class="game">
+        <div class="game-navbar">
+            <p id="navName">Name: </p>
+            <p id="navScore">Score: </p>
+            <p id="navTime">Time: </p>
+        </div>
+        <canvas id="game-canvas" width="950" height="450"></canvas>
+        <div class="game-btn">
+            <button id="pauseBtn">Pause</button>
+            <button id="resetBtn">Play Again</button>
+            <button id="closeBtn">Close</button>
+        </div>
+    </section>
+
+    <div class="notif">
+        <h1 id="notif-head"></h1>
+        <p id="notif-score"></p>
+    </div>
+
+    <div id="analog">
+        <svg class="icon" id="analog-up" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2 160 448c0 17.7 14.3 32 32 32s32-14.3 32-32l0-306.7L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"/></svg>
+        <div class="icon-flex">
+            <svg class="icon" id="analog-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+            <svg class="icon" id="analog-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>
+        </div>
+        <svg class="icon" id="analog-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></svg>
+    </div>
+
+    <!-- Assets -->
+     <div class="assets">
+        <img id="enemyImg" src="./source/ships-02.svg" alt="">
+        <img id="playerImg" src="./source/ships-09.svg" alt="">
+        <img id="smallObjectImg" src="./source/objects-06.png" alt="">
+        <img id="bigObjectImg" src="./source/objects-04.png" alt="">
+        <img id="bgImg" src="./design/background.png" alt="">
+        <audio src="./source/coint.mp3" id="audioCoint"></audio>
+        <audio src="./source/gameover.mp3" id="audioGameOver"></audio>
+        <audio src="./source/success.mp3" id="audioSuccess"></audio>
+     </div>
+
+    <script src="./main.js"></script>
+</body>
+
+</html>

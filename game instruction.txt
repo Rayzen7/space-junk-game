@@ -1,0 +1,16 @@
+How to play this game
+
+1. Enter your name and set the game duration (in seconds).
+2. (Optional) Set the number of space objects to collect.
+3. Click Play to start the game.
+4 Use arrow keys or WASD to move the Phyton around the board.
+5.  Pause/Resume: Press `P` or click Pause button
+5. Collect  all space objects (small = 5 points, large = 20 points).
+6. Avoid the enemy spaceship chasing you.
+
+Game ends if:
+You collect all objects safely
+Time runs out before collection
+You’re caught by the enemy
+
+Try to survive and collect all space objects!
